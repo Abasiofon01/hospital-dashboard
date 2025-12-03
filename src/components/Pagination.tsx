@@ -17,9 +17,21 @@ const Pagination = ({
   onPageChange,
   onItemsPerPageChange,
 }: PaginationProps) => {
-  const getPageNumbers = () => {
+  const getPageNumbers = (mobile = false) => {
     const pageNumbers = [];
-    const maxVisiblePages = 5;
+    const maxVisiblePages = mobile ? 2 : 5;
+
+    if (mobile && totalPages > 2) {
+      pageNumbers.push(1);
+      pageNumbers.push(2);
+      if (totalPages > 3) {
+        pageNumbers.push("...");
+      }
+      if (totalPages > 2) {
+        pageNumbers.push(totalPages);
+      }
+      return pageNumbers;
+    }
 
     if (totalPages <= maxVisiblePages) {
       for (let i = 1; i <= totalPages; i++) {
@@ -59,7 +71,8 @@ const Pagination = ({
     return pageNumbers;
   };
 
-  const pageNumbers = getPageNumbers();
+  const pageNumbersMobile = getPageNumbers(true);
+  const pageNumbersDesktop = getPageNumbers(false);
 
   const baseButtonClasses = "p-2 rounded border transition-colors duration-200";
   const baseItemClasses =
@@ -70,12 +83,15 @@ const Pagination = ({
 
   const disabledClasses =
     "opacity-50 cursor-not-allowed border-gray-200 dark:bg-transparent dark:text-white dark:border-transparent dark:hover:border-white dark:hover:bg-transparent";
-  const activeClasses = "text-white border-white";
+  const activeClasses =
+    "text-black border-gray-400 dark:text-white dark:border-white";
   const ellipsisClasses = "px-3 py-2 text-gray-500 dark:text-gray-400";
 
   return (
     <div
-      className={`mt-7 flex items-center gap-13 justify-end ${className || ""}`}
+      className={`mt-7 flex items-center flex-col-reverse gap-4 sm:flex-row sm:gap-13 justify-end ${
+        className || ""
+      }`}
     >
       <div className="flex items-center gap-1">
         <button
@@ -88,27 +104,53 @@ const Pagination = ({
           <ChevronLeft size={20} />
         </button>
 
-        {pageNumbers.map((page, index) => {
-          if (page === "...") {
-            return (
-              <span key={`ellipsis-${index}`} className={ellipsisClasses}>
-                ...
-              </span>
-            );
-          }
+        <div className="flex items-center gap-1 sm:hidden">
+          {pageNumbersMobile.map((page, index) => {
+            if (page === "...") {
+              return (
+                <span key={`ellipsis-${index}`} className={ellipsisClasses}>
+                  ...
+                </span>
+              );
+            }
 
-          return (
-            <button
-              key={page}
-              onClick={() => onPageChange(page as number)}
-              className={`${baseItemClasses} ${
-                currentPage === page ? activeClasses : defaultClasses
-              }`}
-            >
-              {page}
-            </button>
-          );
-        })}
+            return (
+              <button
+                key={page}
+                onClick={() => onPageChange(page as number)}
+                className={`${baseItemClasses} ${
+                  currentPage === page ? activeClasses : defaultClasses
+                }`}
+              >
+                {page}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="hidden sm:flex items-center gap-1">
+          {pageNumbersDesktop.map((page, index) => {
+            if (page === "...") {
+              return (
+                <span key={`ellipsis-${index}`} className={ellipsisClasses}>
+                  ...
+                </span>
+              );
+            }
+
+            return (
+              <button
+                key={page}
+                onClick={() => onPageChange(page as number)}
+                className={`${baseItemClasses} ${
+                  currentPage === page ? activeClasses : defaultClasses
+                }`}
+              >
+                {page}
+              </button>
+            );
+          })}
+        </div>
 
         <button
           onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}

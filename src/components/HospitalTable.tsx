@@ -1,3 +1,4 @@
+import { EllipsisVertical } from "lucide-react";
 import type { Hospital, DropdownAction } from "../types";
 import EmptyState from "./EmptyState";
 import { useState, useRef, useEffect } from "react";
@@ -148,7 +149,7 @@ const TableRow = ({
               className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               aria-label="Actions"
             >
-              •••
+              <EllipsisVertical />
             </button>
 
             {isDropdownOpen && (
@@ -177,7 +178,7 @@ const TableRow = ({
             onClick={() => onHospitalClick(hospital)}
             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-400"
           >
-            •••
+            <EllipsisVertical />
           </button>
         ) : null}
       </td>

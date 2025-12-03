@@ -141,7 +141,7 @@ const HospitalsPage = () => {
             itemsPerPage={state.itemsPerPage}
             onPageChange={store.setCurrentPage}
             onItemsPerPageChange={store.setItemsPerPage}
-            className="pl-5 pr-5 sm:pr-10 sm:pl-0"
+            className="px-5 sm:px-10"
           />
         </>
       )}
