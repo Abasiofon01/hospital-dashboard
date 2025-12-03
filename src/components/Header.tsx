@@ -14,7 +14,7 @@ const Header = ({ pageTitle, onMenuClick }: HeaderProps) => {
       <div className="flex items-center gap-4">
         <button
           onClick={onMenuClick}
-          className="lg:hidden p-2 rounded-lg bg-white text-gray-700 shadow dark:bg-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+          className="lg:hidden p-2 rounded-lg bg-white border border-gray-200 text-gray-700 shadow dark:bg-[#111111] dark:text-white hover:bg-gray-50 dark:hover:bg-[#3A3A3A] dark:border-[#2a2a2a] transition-colors"
           aria-label="Toggle menu"
         >
           <Menu size={20} />
@@ -25,7 +25,7 @@ const Header = ({ pageTitle, onMenuClick }: HeaderProps) => {
       </div>
       <button
         onClick={toggleTheme}
-        className="p-2 rounded-lg bg-white text-gray-700 shadow dark:bg-gray-800 dark:text-yellow-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+        className="p-2 rounded-lg bg-white text-gray-700 border border-gray-200 shadow dark:bg-[#111111] dark:text-yellow-400 hover:bg-gray-50 dark:hover:bg-[#3A3A3A] transition-colors dark:border-[#2A2A2A]"
         aria-label={
           theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
         }

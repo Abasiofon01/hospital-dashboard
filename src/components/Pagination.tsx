@@ -127,7 +127,7 @@ const Pagination = ({
         <select
           value={itemsPerPage}
           onChange={(e) => onItemsPerPageChange(Number(e.target.value))}
-          className="px-3 py-1 rounded border bg-white text-gray-900 border-gray-200 dark:bg-black dark:text-white dark:border-[#2A2A2A]"
+          className="px-3 py-1 rounded border bg-white text-gray-900 border-gray-200 dark:bg-[#111111] dark:text-white dark:border-[#2A2A2A] "
         >
           <option value={10}>10/page</option>
           <option value={20}>20/page</option>

@@ -96,7 +96,7 @@ const HospitalsPage = () => {
 
           <button
             onClick={() => setIsFilterOpen(true)}
-            className="px-3 py-1 rounded border bg-white text-gray-900 border-gray-200 dark:bg-black dark:text-white dark:border-[#2A2A2A] hover:bg-gray-50 dark:hover:bg-gray-500/5 transition-colors flex items-center gap-2"
+            className="px-3 py-1.5 rounded border bg-white text-gray-900 border-gray-200 dark:bg-[#111111] dark:text-white dark:border-[#2A2A2A] hover:bg-gray-50 dark:hover:bg-gray-500/5 transition-colors flex items-center gap-2"
           >
             <Filter className="h-4 w-4" />
             <span className="hidden lg:inline-block">Filters</span>
