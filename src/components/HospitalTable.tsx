@@ -10,6 +10,13 @@ interface HospitalTableProps {
   dropdownActions?: DropdownAction[];
 }
 
+const displayValue = <T extends string | number | null | undefined>(
+  value: T
+): string => {
+  if (value === null || value === undefined || value === "") return "None";
+  return String(value);
+};
+
 const HospitalTable = ({
   hospitals,
   onHospitalClick,
@@ -115,19 +122,23 @@ const TableRow = ({
         </span>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-        {hospital.hospitalEmail}
+        {displayValue(hospital.hospitalEmail)}
       </td>
+
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-        {hospital.phoneNumber}
+        {displayValue(hospital.phoneNumber)}
       </td>
+
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-        {hospital.address}
+        {displayValue(hospital.address)}
       </td>
+
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-        {hospital.country}
+        {displayValue(hospital.country)}
       </td>
+
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-        {hospital.state}
+        {displayValue(hospital.state)}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm relative">
         {dropdownActions.length > 0 ? (

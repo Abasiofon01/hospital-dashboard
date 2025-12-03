@@ -10,7 +10,7 @@ const Header = ({ pageTitle, onMenuClick }: HeaderProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="sticky top-0 z-10 px-5 sm:px-7 lg:px-10 pt-12.5 pb-6 flex justify-between items-center bg-white shadow dark:bg-[#111111] dark:shadow-lg">
+    <div className="sticky top-0 z-10 px-5 sm:px-7 lg:px-10 pt-6 md:pt-8 lg:pt-12.5 pb-6 flex justify-between items-center bg-white shadow dark:bg-[#111111] dark:shadow-lg">
       <div className="flex items-center gap-4">
         <button
           onClick={onMenuClick}
