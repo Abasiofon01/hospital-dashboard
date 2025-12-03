@@ -146,7 +146,7 @@ const TableRow = ({
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 p-1 rounded hover:bg-gray-100 dark:hover:bg-[#2a2a2a] transition-colors"
               aria-label="Actions"
             >
               <EllipsisVertical />
